@@ -43,19 +43,13 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
+
+					{% for j_key, j_value in json_data.items() %}
 					<li class="nav-item">
-                      <!-- в href указываем id div block куда нам нужно сделать скролл -->
-						<a class="nav-link" href="#carouselExampleIndicators">Carousel</a>
+						<a class="nav-link" href="#{{ j_key }}">{{ j_value[0].short_title }}</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#cards">Cards</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#featurette1">Featurette 1</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#featurette2">Featurette 2</a>
-					</li>
+					{% endfor %}
+					
 				</ul>
 			</div>
 		</div>
