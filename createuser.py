@@ -9,10 +9,6 @@ def create_user(username, password):
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
-    # Создание таблицы users, если она не существует
-    c.execute('''CREATE TABLE IF NOT EXISTS users
-                 (id INTEGER PRIMARY KEY, username TEXT, password TEXT)''')
-
     # Добавление нового пользователя
     c.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, hashed_password))
 
